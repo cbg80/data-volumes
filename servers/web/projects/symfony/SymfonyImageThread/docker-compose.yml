@@ -1,0 +1,18 @@
+cbg-dbserver:
+    build: ./../../../../ddbb/config
+    #image: cbg80/mariadb-utf8mb4:latest
+    ports:
+        - "3306:3306"
+    volumes:
+        - ./../../../../ddbb/projects/symfony/SymfonyImageThread:/var/lib/mysql
+cbg-webserver:
+    build: ./..
+    #image: cbg80/symfony-3.3.10:latest
+    ports:
+        - "80:80"
+#La siguiente entrada, una vez concluido el desarrollo, será sustituida por la 
+#instrucción COPY equivalente en el Dockerfile correspondiente.
+    volumes:
+        - ./../../../../../../SymfonyImageThread:/var/www/html/image-thread.cbg
+    links:
+        - cbg-dbserver:mariadb
