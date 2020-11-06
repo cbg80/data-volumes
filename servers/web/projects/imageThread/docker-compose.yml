@@ -1,5 +1,5 @@
 cbg-dbserver:
-    build: ./../../../ddbb/config
+    build: ./../../../ddbb/projects
     ports:
         - "3306:3306"
     volumes:
