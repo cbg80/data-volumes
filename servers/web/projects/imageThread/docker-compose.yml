@@ -1,5 +1,5 @@
 cbg-dbserver:
-    build: ./../../../ddbb/config
+    build: ./../../../ddbb/projects
     ports:
         - "3306:3306"
     volumes:
@@ -11,6 +11,6 @@ cbg-webserver:
 #La siguiente entrada, una vez concluido el desarrollo, será sustituida por la 
 #instrucción COPY equivalente en el Dockerfile correspondiente.
     volumes:
-        - ./../../../../../ImageThread:/var/www/html/image-thread.cbg/html_root
+        - ./../../../../../image-thread:/var/www/html/image-thread.cbg/html_root
     links:
         - cbg-dbserver:mariadb
